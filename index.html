@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment Videos : Shruti Jain(IT-2K22-54)</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        max-width: 900px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .video {
+        margin-bottom: 20px;
+      }
+      .video iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+      }
+      .video-info {
+        margin-top: 10px;
+      }
+      .slider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .slider-button {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin: 0 10px;
+        font-size: 16px;
+        border-radius: 15%;
+      }
+      .slider-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Data Science Assignment Videos : Shruti Jain(IT-2K22-54)</h1>
+
+      <!-- Video Slider -->
+      <div class="slider">
+        <button class="slider-button" id="prev">Prev</button>
+        <button class="slider-button" id="next">Next</button>
+      </div>
+
+      <!-- Video Content Section -->
+      <div class="video" id="video-container">
+        <h2>Video 1: 00. Introduction to Data Science</h2>
+        <iframe
+          src="https://www.youtube.com/embed/nhFfgKqzw6w"
+          id="video-iframe"
+        ></iframe>
+      </div>
+
+      <!-- Video Details Section -->
+      <div class="video-info" id="video-info">
+        <p><strong>Video Name:</strong> 00. Introduction to Data Science</p>
+        <p>
+          <strong>Description:</strong> What is Data Science? Why Study Data
+          Science? What are the Phases of Data Science?
+        </p>
+        <p><strong>Date of Creation:</strong> 01-11-2024</p>
+        <p><strong>Date of Publishing:</strong> 05-11-2024</p>
+      </div>
+    </div>
+
+    <script>
+      // Video Data
+      const videos = [
+        {
+          title: "00. Introduction to Data Science",
+          description:
+            "What is Data Science? Why Study Data Science? What are the Phases of Data Science?",
+          videoId: "nhFfgKqzw6w",
+          creationDate: "01-11-2024",
+          publishDate: "05-11-2024",
+        },
+        {
+          title: "01. Python for Data Science",
+          description:
+            "Basics of Coding in Python: Using Comments, Executing Commands, Importing Packages, Getting Data, Saving Output, Accessing Records and Variables",
+          videoId: "jwuhXkfBkz4",
+          creationDate: "02-11-2024",
+          publishDate: "06-11-2024",
+        },
+        {
+          title: "02. Data Preparation in Python",
+          description:
+            "How to Add an Index Field, Change Misleading Field Values, Re-Express Categorical Fields, Standardize Numeric Fields, Identify Outliers Using Python",
+          videoId: "PItVRQ28ze8",
+          creationDate: "03-11-2024",
+          publishDate: "07-11-2024",
+        },
+        {
+          title: "03. Exploratory Data Analysis",
+          description:
+            "Constructing Bar Graphs, Contingency Tables, Histograms, Binning Using Python",
+          videoId: "851MQDJEALo",
+          creationDate: "04-11-2024",
+          publishDate: "08-11-2024",
+        },
+        {
+          title: "04.1. Data Preparation Phase To Model The Data (PART- 1)",
+          description:
+            "Partition the Data, Balance the Training Data Set, Introduction to Decision Trees",
+          videoId: "uNz5yrmKDB4",
+          creationDate: "05-11-2024",
+          publishDate: "09-11-2024",
+        },
+        {
+          title: "04.2. Data Preparation Phase To Model The Data (PART- 2)",
+          description:
+            "Build CART Decision Trees, Build C5.0 Decision Trees, Build Random Forests Using Python",
+          videoId: "fkNT7F9TOrw",
+          creationDate: "06-11-2024",
+          publishDate: "10-11-2024",
+        },
+        {
+          title: "05. Model Evaluation Using Python",
+          description:
+            "Model Evaluation and Accounting for Unequal Error Costs Using Python",
+          videoId: "jrZw5v6Nst4",
+          creationDate: "07-11-2024",
+          publishDate: "11-11-2024",
+        },
+        {
+          title: "06. Naïve Bayes Classification",
+          description: "Demonstrate application of Naïve Bayes Using Python",
+          videoId: "qXIjqZkyTPQ",
+          creationDate: "08-11-2024",
+          publishDate: "12-11-2024",
+        },
+        {
+          title: "07. Neural Networks",
+          description:
+            "Demonstrate application of Neural Networks Using Python",
+          videoId: "thy62RhNy7E",
+          creationDate: "09-11-2024",
+          publishDate: "13-11-2024",
+        },
+        {
+          title: "08. k-Means Clustering",
+          description:
+            "Demonstrate application of k-Means Clustering Using Python",
+          videoId: "Wq__imr7U_0",
+          creationDate: "10-11-2024",
+          publishDate: "14-11-2024",
+        },
+        {
+          title: "09. Regression Modelling",
+          description:
+            "Estimation Model Evaluation, Stepwise Regression Using Python",
+          videoId: "vz6m2GyvODc",
+          creationDate: "11-11-2024",
+          publishDate: "15-11-2024",
+        },
+        {
+          title: "10. Dimension Reduction",
+          description:
+            "Identify Multicollinearity, Apply Principal Components Analysis Using Python",
+          videoId: "WGCljQpUdE8",
+          creationDate: "12-11-2024",
+          publishDate: "16-11-2024",
+        },
+        {
+          title: "11. Logistic Regression Modelling",
+          description:
+            "Perform Logistic Regression and Poisson Regression Using Python",
+          videoId: "91ms29WO1f0",
+          creationDate: "13-11-2024",
+          publishDate: "17-11-2024",
+        },
+        {
+          title: "12. Association Rules || Association Rule Mining",
+          description:
+            "Mine Association Rules, Apply Confidence Difference and Quotient Criterion Using Python",
+          videoId: "9QwAShlxnhw",
+          creationDate: "14-11-2024",
+          publishDate: "18-11-2024",
+        },
+      ];
+
+      let currentIndex = 0;
+
+      // Function to update the video content dynamically
+      function updateVideo(index) {
+        const video = videos[index];
+        document.getElementById(
+          "video-iframe"
+        ).src = `https://www.youtube.com/embed/${video.videoId}`;
+        document.querySelector(".video h2").textContent = `${index + 1}. ${
+          video.title
+        }`;
+        document.querySelector("#video-info").innerHTML = `
+                <p><strong>Video Name:</strong> ${video.title}</p>
+                <p><strong>Description:</strong> ${video.description}</p>
+                <p><strong>Date of Creation:</strong> ${video.creationDate}</p>
+                <p><strong>Date of Publishing:</strong> ${video.publishDate}</p>
+            `;
+      }
+
+      // Next button functionality
+      document.getElementById("next").addEventListener("click", function () {
+        if (currentIndex < videos.length - 1) {
+          currentIndex++;
+          updateVideo(currentIndex);
+        }
+      });
+
+      // Previous button functionality
+      document.getElementById("prev").addEventListener("click", function () {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateVideo(currentIndex);
+        }
+      });
+
+      // Initialize the first video
+      updateVideo(currentIndex);
+    </script>
+  </body>
+</html>
